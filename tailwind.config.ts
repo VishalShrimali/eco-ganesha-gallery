@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,15 +53,28 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// Custom colors for our eco-friendly theme
+				eco: {
+					green: {
+						light: '#F2FCE2',
+						DEFAULT: '#8FB93C',
+						dark: '#3A6B35'
+					},
+					earth: {
+						light: '#E2D1C3',
+						DEFAULT: '#A67C52',
+						dark: '#5D4037'
+					},
+					purple: {
+						light: '#F5EBFF',
+						DEFAULT: '#9B87F5',
+						dark: '#7E69AB'
+					},
+					orange: {
+						light: '#FDE1D3',
+						DEFAULT: '#F97316',
+						dark: '#C2410C'
+					}
 				}
 			},
 			borderRadius: {
@@ -84,11 +98,33 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0'
+					},
+					'100%': {
+						opacity: '1'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'float': 'float 3s ease-in-out infinite'
+			},
+			fontFamily: {
+				sans: ['Poppins', 'sans-serif'],
+				heading: ['Playfair Display', 'serif']
 			}
 		}
 	},
