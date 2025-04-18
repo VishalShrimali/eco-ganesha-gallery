@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -86,15 +87,15 @@
   }
   
   .btn-primary {
-    @apply bg-eco-orange-DEFAULT hover:bg-eco-orange-dark text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
+    @apply bg-[#F97316] hover:bg-[#C2410C] text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
   }
   
   .btn-secondary {
-    @apply bg-eco-purple-DEFAULT hover:bg-eco-purple-dark text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
+    @apply bg-[#9B87F5] hover:bg-[#7E69AB] text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
   }
   
   .btn-outline {
-    @apply border-2 border-eco-green-DEFAULT text-eco-green-DEFAULT hover:bg-eco-green-DEFAULT hover:text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
+    @apply border-2 border-[#8FB93C] text-[#8FB93C] hover:bg-[#8FB93C] hover:text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
   }
   
   .card-hover {
@@ -102,7 +103,7 @@
   }
   
   .form-input {
-    @apply w-full px-4 py-3 rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-eco-green-DEFAULT;
+    @apply w-full px-4 py-3 rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-[#8FB93C];
   }
   
   .section-padding {

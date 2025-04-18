@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
   const [products] = useState(getFeaturedProducts());
 
   return (
-    <section className="section-padding bg-eco-purple-light bg-opacity-20">
+    <section className="section-padding bg-[#F5EBFF] bg-opacity-20">
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
