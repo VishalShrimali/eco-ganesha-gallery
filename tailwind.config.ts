@@ -1,7 +1,7 @@
 
 import type { Config } from "tailwindcss";
 
-const config = {
+export default {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -14,35 +14,30 @@ const config = {
       colors: {
         eco: {
           green: {
-            light: '#ECFDF5',
-            DEFAULT: '#10B981',
-            dark: '#047857'
+            light: '#E6F3D7',
+            DEFAULT: '#7AB73C',
+            dark: '#3A6B35'
           },
           purple: {
-            light: '#F5F3FF',
-            DEFAULT: '#8B5CF6',
-            dark: '#6D28D9'
+            light: '#E8E0F7',
+            DEFAULT: '#8A4FFF',
+            dark: '#5A2EA3'
           },
           orange: {
-            light: '#FFF7ED',
+            light: '#FDE1D3',
             DEFAULT: '#F97316',
             dark: '#C2410C'
           },
           earth: {
-            light: '#FFFBEB',
-            DEFAULT: '#F59E0B',
-            dark: '#B45309'
+            light: '#D7C0AE',
+            DEFAULT: '#A67C52',
+            dark: '#5D4037'
           }
         }
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         heading: ['Playfair Display', 'serif']
-      },
-      borderRadius: {
-        'xl': '1rem',
-        '2xl': '1.5rem',
-        '3xl': '2rem',
       },
       keyframes: {
         "accordion-down": {
@@ -77,5 +72,3 @@ const config = {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
-export default config;
