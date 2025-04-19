@@ -14,22 +14,22 @@ const config = {
       colors: {
         eco: {
           green: {
-            light: '#E7F5E4',
-            DEFAULT: '#2DD4BF',
-            dark: '#0F766E'
+            light: '#ECFDF5',
+            DEFAULT: '#10B981',
+            dark: '#047857'
           },
           purple: {
-            light: '#F3E8FF',
+            light: '#F5F3FF',
             DEFAULT: '#8B5CF6',
             dark: '#6D28D9'
           },
           orange: {
-            light: '#FFE4E6',
-            DEFAULT: '#F43F5E',
-            dark: '#BE123C'
+            light: '#FFF7ED',
+            DEFAULT: '#F97316',
+            dark: '#C2410C'
           },
           earth: {
-            light: '#FEF3C7',
+            light: '#FFFBEB',
             DEFAULT: '#F59E0B',
             dark: '#B45309'
           }
@@ -38,6 +38,11 @@ const config = {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
         heading: ['Playfair Display', 'serif']
+      },
+      borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
       },
       keyframes: {
         "accordion-down": {
