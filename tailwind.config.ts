@@ -14,24 +14,24 @@ export default {
       colors: {
         eco: {
           green: {
-            light: '#E6F3D7',
-            DEFAULT: '#7AB73C',
-            dark: '#3A6B35'
+            light: '#E7F5E4',
+            DEFAULT: '#2DD4BF',
+            dark: '#0F766E'
           },
           purple: {
-            light: '#E8E0F7',
-            DEFAULT: '#8A4FFF',
-            dark: '#5A2EA3'
+            light: '#F3E8FF',
+            DEFAULT: '#8B5CF6',
+            dark: '#6D28D9'
           },
           orange: {
-            light: '#FDE1D3',
-            DEFAULT: '#F97316',
-            dark: '#C2410C'
+            light: '#FFE4E6',
+            DEFAULT: '#F43F5E',
+            dark: '#BE123C'
           },
           earth: {
-            light: '#D7C0AE',
-            DEFAULT: '#A67C52',
-            dark: '#5D4037'
+            light: '#FEF3C7',
+            DEFAULT: '#F59E0B',
+            dark: '#B45309'
           }
         }
       },
