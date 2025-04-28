@@ -1,6 +1,6 @@
 
-import { useState } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Testimonial {
@@ -49,23 +49,54 @@ const testimonials: Testimonial[] = [
 
 const TestimonialSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
 
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
+    if (!isAnimating) {
+      setDirection('next');
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+        );
+        setIsAnimating(false);
+      }, 300);
+    }
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
+    if (!isAnimating) {
+      setDirection('prev');
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+        );
+        setIsAnimating(false);
+      }, 300);
+    }
   };
 
+  // Auto advance testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextTestimonial();
+    }, 8000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="section-padding bg-eco-earth-light bg-opacity-20">
-      <div className="container-custom">
+    <section className="section-padding bg-gradient-to-br from-eco-earth-light/20 to-white relative overflow-hidden">
+      <div className="absolute -top-24 -left-24 w-48 h-48 bg-eco-purple-light rounded-full opacity-30 blur-3xl"></div>
+      <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-eco-green-light rounded-full opacity-30 blur-3xl"></div>
+      
+      <div className="container-custom relative z-10">
         <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1 bg-eco-orange-light text-eco-orange-dark rounded-full text-sm font-medium mb-4 animate-fade-in">
+            Customer Reviews
+          </span>
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
             What Our Customers Say
           </h2>
@@ -75,14 +106,22 @@ const TestimonialSection = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 relative">
-            <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-24 h-24 text-eco-purple-light/20">
+              <Quote size={96} className="fill-current" />
+            </div>
+            
+            <div 
+              className={`flex flex-col md:flex-row gap-6 md:gap-10 relative z-10 transition-opacity duration-300 ${
+                isAnimating ? 'opacity-0' : 'opacity-100'
+              }`}
+            >
               <div className="md:w-1/4 flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+                <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-eco-purple-light p-1">
                   <img 
                     src={testimonials[currentIndex].image} 
                     alt={testimonials[currentIndex].name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-full"
                   />
                 </div>
                 <h4 className="font-semibold text-center">{testimonials[currentIndex].name}</h4>
@@ -99,7 +138,7 @@ const TestimonialSection = () => {
               </div>
               
               <div className="md:w-3/4">
-                <p className="text-gray-600 italic mb-4">
+                <p className="text-gray-600 italic mb-4 text-lg">
                   "{testimonials[currentIndex].text}"
                 </p>
               </div>
@@ -110,15 +149,34 @@ const TestimonialSection = () => {
                 variant="outline"
                 size="icon"
                 onClick={prevTestimonial}
-                className="rounded-full hover:bg-eco-purple-light hover:text-eco-purple-dark"
+                className="rounded-full hover:bg-eco-purple-light hover:text-eco-purple-dark border-eco-purple-light"
               >
                 <ChevronLeft size={20} />
               </Button>
+              
+              <div className="flex gap-1">
+                {testimonials.map((_, idx) => (
+                  <button 
+                    key={idx} 
+                    onClick={() => {
+                      setDirection(idx > currentIndex ? 'next' : 'prev');
+                      setCurrentIndex(idx);
+                    }}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      idx === currentIndex 
+                        ? 'w-6 bg-eco-purple-DEFAULT' 
+                        : 'bg-eco-purple-light'
+                    }`}
+                    aria-label={`Go to testimonial ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              
               <Button
                 variant="outline"
                 size="icon"
                 onClick={nextTestimonial}
-                className="rounded-full hover:bg-eco-purple-light hover:text-eco-purple-dark"
+                className="rounded-full hover:bg-eco-purple-light hover:text-eco-purple-dark border-eco-purple-light"
               >
                 <ChevronRight size={20} />
               </Button>
