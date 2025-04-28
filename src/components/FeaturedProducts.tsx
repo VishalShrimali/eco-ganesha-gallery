@@ -1,12 +1,12 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { Button } from "@/components/ui/button";
 import { getFeaturedProducts } from "@/data/products";
 
 const FeaturedProducts = () => {
-  const [products] = useState(getFeaturedProducts());
+  const [products, setProducts] = useState(getFeaturedProducts());
 
   return (
     <section className="section-padding bg-eco-purple-light bg-opacity-20">

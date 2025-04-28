@@ -1,5 +1,91 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 30% 98%;
+    --foreground: 20 14.3% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+
+    --primary: 142 76% 36%;
+    --primary-foreground: 355.7 100% 97.3%;
+
+    --secondary: 60 100% 94%;
+    --secondary-foreground: 24 9.8% 10%;
+
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --accent: 265 100% 75%;
+    --accent-foreground: 24 9.8% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 60 9.1% 97.8%;
+
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 60 9.1% 97.8%;
+
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+
+    --primary: 142 70% 45%;
+    --primary-foreground: 355.7 100% 97.3%;
+
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+
+    --accent: 265 80% 65%;
+    --accent-foreground: 60 9.1% 97.8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 12 6.5% 15.1%;
+    --input: 12 6.5% 15.1%;
+    --ring: 142 70% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
 @layer components {
+  .container-custom {
+    @apply w-full max-w-[1440px] px-4 md:px-6 lg:px-8 mx-auto;
+  }
+  
   .btn-primary {
     @apply bg-eco-orange-DEFAULT hover:bg-eco-orange-dark text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
   }
@@ -10,5 +96,17 @@
   
   .btn-outline {
     @apply border-2 border-eco-green-DEFAULT text-eco-green-DEFAULT hover:bg-eco-green-DEFAULT hover:text-white px-6 py-3 rounded-md font-medium transition duration-300 ease-in-out;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .form-input {
+    @apply w-full px-4 py-3 rounded-md border border-border bg-background focus:outline-none focus:ring-2 focus:ring-eco-green-DEFAULT;
+  }
+  
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-24;
   }
 }
