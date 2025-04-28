@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
   const [products] = useState(getFeaturedProducts());
 
   return (
-    <section className="section-padding bg-[#F5EBFF] bg-opacity-20">
+    <section className="section-padding bg-eco-purple-light bg-opacity-20">
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
@@ -38,7 +38,7 @@ const FeaturedProducts = () => {
           <Link to="/products">
             <Button 
               variant="outline" 
-              className="border-2 border-[#8FB93C] text-[#8FB93C] hover:bg-[#8FB93C] hover:text-white"
+              className="btn-outline"
             >
               View All Products
             </Button>
